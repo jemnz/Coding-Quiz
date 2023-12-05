@@ -1,5 +1,6 @@
 const startButton = document.getElementById("start");
 const timeElement = document.getElementById("time");
+const questionsElement = document.getElementById("questions");
 const questionTitleElement = document.getElementById("question-title");
 const choicesElement = document.getElementById("choices");
 const feedbackElement = document.getElementById("feedback");
@@ -11,3 +12,14 @@ let timer;
 let timeLeft = 60;
 
 startButton.addEventListener("click", startQuiz);
+
+function startQuiz() {
+
+    var openingScreenElement = document.getElementById("start-screen");
+    openingScreenElement.setAttribute("class", "hide");
+    questionsElement.removeAttribute("class");
+   
+    startTimer();
+    
+    displayQuestion();
+}
