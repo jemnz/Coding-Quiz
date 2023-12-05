@@ -18,8 +18,23 @@ function startQuiz() {
     var openingScreenElement = document.getElementById("start-screen");
     openingScreenElement.setAttribute("class", "hide");
     questionsElement.removeAttribute("class");
-   
+
     startTimer();
-    
+
     displayQuestion();
+}
+
+function startTimer() {
+
+    const interval = 1000;
+
+    timer = setInterval(function () {
+        timeLeft = timeLeft - 1;
+        timeElement.textContent = timeLeft;
+
+
+        if (timeLeft <= 0) {
+            endQuiz();
+        }
+    }, interval);
 }
