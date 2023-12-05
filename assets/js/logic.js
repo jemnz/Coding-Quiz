@@ -38,3 +38,23 @@ function startTimer() {
         }
     }, interval);
 }
+
+function displayQuestion() {
+   
+    const currentQuestion = questions[currentQuestionIndex];
+
+    questionTitleElement.textContent = currentQuestion.question;
+
+    choicesElement.innerHTML = "";
+
+    currentQuestion.choices.forEach((choice, index) => {
+      const choiceButton = document.createElement("button");
+      choiceButton.textContent = choice;
+      choiceButton.addEventListener("click", function () {
+        checkAnswer(index);
+      });
+      choicesElement.appendChild(choiceButton);
+    });
+  }
+
+  
