@@ -61,9 +61,25 @@ function displayQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
     if (currentQuestion.choices[choiceIndex] === currentQuestion.correctAnswer) {
       feedbackElement.textContent = "Correct!";
+
     } else {
       timeLeft = timeLeft - 10;
       feedbackElement.textContent = "Wrong!";
     }
+    
+      currentQuestionIndex++;
 
-}
+      if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+
+      } else {
+
+        endQuiz();
+      }
+
+      if (timeLeft <= 0) {
+        endQuiz();
+      }
+    }
+  
+  
