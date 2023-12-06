@@ -57,4 +57,13 @@ function displayQuestion() {
     });
   }
 
-  
+  function checkAnswer(choiceIndex) {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (currentQuestion.choices[choiceIndex] === currentQuestion.correctAnswer) {
+      feedbackElement.textContent = "Correct!";
+    } else {
+      timeLeft -= 10;
+      feedbackElement.textContent = "Wrong!";
+    }
+
+}
