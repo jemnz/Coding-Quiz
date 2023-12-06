@@ -82,4 +82,27 @@ function displayQuestion() {
       }
     }
   
-  
+    function saveHighscore() {
+        var name = initialsInput.value;
+        
+        if (name !== "") {
+            var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+            var newScore = {
+              score: time,
+              name: name
+            };
+            highscores.push(newScore);
+            window.localStorage.setItem("highscores", JSON.stringify(highscores));
+          }
+        }
+        
+        function checkForEnter(event) {
+          if (event.key === "Enter") {
+            saveHighscore();
+          }
+        }
+        
+        initialsInput.addEventListener("keyup", checkForEnter);
+        submitButton.addEventListener("click", saveHighscore);
+        startButton.addEventListener("click", startQuiz);
+        
